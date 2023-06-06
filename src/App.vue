@@ -1,18 +1,55 @@
+<script setup>
+
+import { reactive,computed } from 'vue';
+
+// export default {
+  // setup() {
+  //   const state = reactive({ count: 0 })
+
+  //   function increment() {
+  //     state.count++
+  //   }
+
+  //   function decrement() {
+  //     state.count--
+  //   }
+
+  //   return {
+  //     state,
+  //     increment,
+  //     decrement
+  //   }
+  // },
+// }
+
+const author = reactive({
+    name:"firr",
+    website:[
+      'E-Comers',
+      'web-hack',
+    ]
+  })
+
+  const publishedWeb = computed(() => {
+    return author.website.length > 0 ? 'Yes' : 'No' 
+  })
+</script>
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <div>{{ state.count }}</div>
+  <button @click="increment">
+  PLUS
+  </button>
+  <button @click="decrement">
+  MINUS
+  </button> -->
+  <div>
+    <p>Has published web :</p>
+    <span>{{ publishedWeb }}</span>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
 <style>
 #app {
@@ -22,5 +59,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+button {
+  margin-right: 10px;
 }
 </style>
